@@ -5,12 +5,19 @@ package veterinaria;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import com.sun.javafx.property.adapter.PropertyDescriptor;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -22,9 +29,7 @@ public class MainApp extends Application {
     private AnchorPane rootPane;
 
     public String usuario;
-    private MainApp ProgramaPrincipal;
 
-    
     @Override
     public void start(Stage stage) throws Exception {
         this.stagePrincipal = stage;
@@ -36,14 +41,18 @@ public class MainApp extends Application {
             FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("FXMLPrincipal.fxml"));
             rootPane = (AnchorPane) loader.load();
             Scene scene = new Scene(rootPane);
-            stagePrincipal.setTitle("Login");
+            stagePrincipal.initStyle(StageStyle.UNDECORATED);
+            stagePrincipal.setTitle("Veterinaria Main");
             stagePrincipal.setScene(scene);
             FXMLPrincipalController controller = loader.getController();
             controller.setProgramaPrincipal(this);
-            stagePrincipal.show();
+            //   stagePrincipal.show();
+
         } catch (IOException e) {
-            //tratar la excepción.
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, e);
         }
+        stagePrincipal.show();
+
     }
 
     public void pantallaPropietario() {
@@ -52,7 +61,8 @@ public class MainApp extends Application {
             AnchorPane ventanaEmpleado = (AnchorPane) loader.load();
             Stage ventana = new Stage();
             ventana.setTitle("Control Horario");
-            //ventana.initModality(Modality.WINDOW_MODAL);
+            ventana.initStyle(StageStyle.UNDECORATED);
+//ventana.initModality(Modality.WINDOW_MODAL);
             ventana.initOwner(stagePrincipal);
             Scene scene = new Scene(ventanaEmpleado);
             ventana.setScene(scene);
@@ -62,7 +72,7 @@ public class MainApp extends Application {
             stagePrincipal = ventana;
 
         } catch (IOException e) {
-            //tratar la excepción.
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -72,6 +82,7 @@ public class MainApp extends Application {
             AnchorPane ventanaAdmin = (AnchorPane) loader.load();
             Stage ventana = new Stage();
             ventana.setTitle("Control Horario");
+            ventana.initStyle(StageStyle.UNDECORATED);
             //ventana.initModality(Modality.WINDOW_MODAL);
             ventana.initOwner(stagePrincipal);
             Scene scene = new Scene(ventanaAdmin);
@@ -82,7 +93,7 @@ public class MainApp extends Application {
             stagePrincipal = ventana;
 
         } catch (IOException e) {
-            //tratar la excepción.
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -92,18 +103,28 @@ public class MainApp extends Application {
             AnchorPane ventanaCambioPass = (AnchorPane) loader.load();
             Stage ventana = new Stage();
             ventana.setTitle("Cambiar contraseña");
+            ventana.initStyle(StageStyle.UNDECORATED);
             //ventana.initModality(Modality.WINDOW_MODAL);
             ventana.initOwner(stagePrincipal);
             Scene scene = new Scene(ventanaCambioPass);
             ventana.setScene(scene);
             FXMLpantallaCitaController controller = loader.getController();
             controller.setProgramaPrincipal(this);
+            Platform.setImplicitExit(false);
+
+            /* stagePrincipal.setOnCloseRequest(new EventHandler<WindowEvent>() {
+             @Override
+             public void handle(WindowEvent event) {
+             event.consume();
+             mostrarVentanaPrincipal();
+             }
+             });
+             */
             ventana.show();
             stagePrincipal = ventana;
-            
 
         } catch (IOException e) {
-            //tratar la excepción.
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -116,14 +137,12 @@ public class MainApp extends Application {
     }
 
     /**
-     * The main() method is ignored in correctly deployed JavaFX application.
-     * main() serves only as fallback in case the application can not be
-     * launched through deployment artifacts, e.g., in IDEs with limited FX
-     * support. NetBeans ignores main().
+     * The main() method is ignored in correctly deployed JavaFX application. main() serves only as fallback in case the application can not be launched through deployment artifacts, e.g., in IDEs with limited FX support. NetBeans ignores main().
      *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
+
 }
