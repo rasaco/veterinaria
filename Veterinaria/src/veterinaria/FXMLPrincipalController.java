@@ -20,9 +20,18 @@ public class FXMLPrincipalController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    private MainApp ProgramaPrincipal;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
     
+    public void setProgramaPrincipal(MainApp aThis) {
+        ProgramaPrincipal = aThis;
+    }
+
+    public void cerrar() {
+        ProgramaPrincipal.cerrarVentana();
+    }
 }
