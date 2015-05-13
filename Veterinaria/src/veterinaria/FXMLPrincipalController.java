@@ -6,7 +6,13 @@
 package veterinaria;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +22,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -41,7 +48,24 @@ public class FXMLPrincipalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        getActions();
+        pruebaConexion();
+    }
 
+    private void accionCita() {
+        ProgramaPrincipal.esconderVentana();
+        ProgramaPrincipal.pantallaCita();
+    }
+
+    public void setProgramaPrincipal(MainApp aThis) {
+        ProgramaPrincipal = aThis;
+    }
+
+    public void esconder() {
+        ProgramaPrincipal.esconderVentana();
+    }
+
+    private void getActions() {
         btnCita.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -58,16 +82,28 @@ public class FXMLPrincipalController implements Initializable {
         });
     }
 
-    private void accionCita() {
-        ProgramaPrincipal.esconderVentana();
-        ProgramaPrincipal.pantallaCita();
-    }
+    private void pruebaConexion() {
+        Connection conexion;
+        try {
 
-    public void setProgramaPrincipal(MainApp aThis) {
-        ProgramaPrincipal = aThis;
-    }
+            conexion = DBConnector.connect();
+            // Consulta
+            Statement sentencia = conexion.createStatement();
+            //      System.out.println(user.getText());
+            //      System.out.println(password.getText());
+            ResultSet res;
+            res = sentencia.executeQuery("SELECT nombre from propietarios");
+            //Recorremos el resultada para visualizar cada fila
+            while (res.next()) {
+                JOptionPane.showMessageDialog(null, res.getString(1), null, 1);
+            }
+            res.close();
+            sentencia.close();
+            conexion.close();
+            
 
-    public void esconder() {
-        ProgramaPrincipal.esconderVentana();
+        } catch (SQLException e) {
+            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 }
