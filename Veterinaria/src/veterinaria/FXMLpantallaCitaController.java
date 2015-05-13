@@ -34,8 +34,8 @@ public class FXMLpantallaCitaController implements Initializable {
 
             @Override
             public void handle(MouseEvent t) {
-                ProgramaPrincipal.cerrarVentana();
-                ProgramaPrincipal.mostrarVentanaPrincipal();
+                ProgramaPrincipal.cerrarVentanaS();
+                ProgramaPrincipal.desocultarPrincipal();
             }
         });
     }
@@ -44,12 +44,5 @@ public class FXMLpantallaCitaController implements Initializable {
         ProgramaPrincipal = aThis;
     }
 
-    public void cerrar() {
-        ProgramaPrincipal.cerrarVentana();
-    }
-
-    private void cierraVentana() {
-        ProgramaPrincipal.cerrarVentana();
-        ProgramaPrincipal.mostrarVentanaPrincipal();
-    }
+    
 }

@@ -53,7 +53,7 @@ public class FXMLPrincipalController implements Initializable {
 
             @Override
             public void handle(MouseEvent t) {
-                ProgramaPrincipal.cerrarVentana();
+                ProgramaPrincipal.cerrarVentanaP();
             }
         });
     }
@@ -65,10 +65,6 @@ public class FXMLPrincipalController implements Initializable {
 
     public void setProgramaPrincipal(MainApp aThis) {
         ProgramaPrincipal = aThis;
-    }
-
-    public void cerrar() {
-        ProgramaPrincipal.cerrarVentana();
     }
 
     public void esconder() {

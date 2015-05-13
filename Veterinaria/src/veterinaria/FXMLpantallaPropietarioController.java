@@ -30,13 +30,4 @@ public class FXMLpantallaPropietarioController implements Initializable {
     public void setProgramaPrincipal(MainApp aThis) {
         ProgramaPrincipal = aThis;
     }
-
-    public void cerrar() {
-        ProgramaPrincipal.cerrarVentana();
-    }
-
-    private void cierraVentana() {
-        ProgramaPrincipal.cerrarVentana();
-        ProgramaPrincipal.mostrarVentanaPrincipal();
-    }
 }
