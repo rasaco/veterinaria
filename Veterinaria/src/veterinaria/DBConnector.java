@@ -1,7 +1,7 @@
 package veterinaria;
 
 /**
- *
+ * Prueba de dos pushes a la vez
  * @author Raul
  */
 import java.sql.Connection;
