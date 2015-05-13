@@ -7,28 +7,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/2.2" fx:controller="veterinaria.FXMLPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="veterinaria.FXMLPrincipalController">
   <children>
-    <Button fx:id="btnPropietarios" layoutX="45.0" layoutY="109.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="PROPIETARIOS">
+    <Button fx:id="btnPropietario" layoutX="156.0" layoutY="109.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="PROPIETARIOS">
       <font>
         <Font name="Times New Roman" size="20.0" fx:id="x1" />
       </font>
     </Button>
-    <Button fx:id="btnCitas" font="$x1" layoutX="350.0" layoutY="275.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="95.0" text="CITAS" textAlignment="CENTER" />
-    <Button fx:id="btnSalir" layoutX="709.0" layoutY="14.0" mnemonicParsing="false" text="SALIR">
-      <font>
-        <Font name="Times New Roman" size="15.0" fx:id="x2" />
-      </font>
-    </Button>
-    <Button fx:id="btnMascotas" font="$x1" layoutX="582.0" layoutY="109.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="MASCOTAS" />
-    <Label fx:id="lblBusquedaDirecta" font="$x2" layoutX="104.0" layoutY="210.0" text="Busqueda Directa:" />
-    <TextField fx:id="txtBusquedaDirecta" layoutX="225.0" layoutY="203.0" prefHeight="25.0001220703125" prefWidth="230.0" />
-    <RadioButton fx:id="rdbPropietario" layoutX="465.0" layoutY="212.0" mnemonicParsing="false" text="Propietario">
+    <Button fx:id="btnCita" font="$x1" layoutX="350.0" layoutY="185.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="95.0" text="CITAS" textAlignment="CENTER" />
+    <Button fx:id="btnMascota" font="$x1" layoutX="458.0" layoutY="109.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="MASCOTAS" />
+    <TextField fx:id="txtBusquedaDirecta" layoutX="548.0" layoutY="37.0" prefHeight="25.0001220703125" prefWidth="230.0" />
+    <RadioButton fx:id="rdbPropietario" layoutX="590.0" layoutY="14.0" mnemonicParsing="false" text="Propietario">
       <font>
         <Font name="Times New Roman" size="12.0" fx:id="x3" />
       </font>
     </RadioButton>
-    <RadioButton fx:id="rdbMascota" font="$x3" layoutX="548.0" layoutY="212.0" mnemonicParsing="false" text="Mascota" />
-    <Button fx:id="btnBuscar" font="$x2" layoutX="623.0" layoutY="204.0" mnemonicParsing="false" text="BUSCAR" />
+    <RadioButton fx:id="rdbMascota" font="$x3" layoutX="673.0" layoutY="14.0" mnemonicParsing="false" text="Mascota" />
   </children>
 </AnchorPane>
