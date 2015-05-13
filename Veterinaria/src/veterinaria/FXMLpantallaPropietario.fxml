@@ -5,5 +5,15 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="veterinaria.FXMLpantallaPropietarioController" />
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="veterinaria.FXMLpantallaPropietarioController">
+  <children>
+    <Label fx:id="lblTituloPantalla" layoutX="277.0" layoutY="26.0" text="PROPIETARIOS">
+      <font>
+        <Font name="Times New Roman" size="35.0" />
+      </font>
+    </Label>
+    <TextField fx:id="txtNombreProp" layoutX="77.0" layoutY="130.0" prefWidth="200.0" />
+  </children>
+</AnchorPane>
