@@ -14,6 +14,15 @@
         <Font name="Times New Roman" size="35.0" />
       </font>
     </Label>
-    <TextField fx:id="txtNombreProp" layoutX="77.0" layoutY="130.0" prefWidth="200.0" />
+    <TextField fx:id="txtNombreProp" layoutX="77.0" layoutY="105.0" prefWidth="200.0" />
+    <TextField fx:id="txtApellidosProp" layoutX="335.0" layoutY="105.0" prefWidth="200.0" />
+    <TextField fx:id="txtDireccionProp" layoutX="77.0" layoutY="212.0" prefWidth="200.0" />
+    <TextField fx:id="txtLocalidadProp" layoutX="77.0" layoutY="262.0" prefWidth="200.0" />
+    <TextField fx:id="txtProvinciaProp" layoutX="77.0" layoutY="312.0" prefWidth="200.0" />
+    <TextField fx:id="txtCpProp" layoutX="77.0" layoutY="363.0" prefWidth="200.0" />
+    <TextField fx:id="txtTel1Prop" layoutX="77.0" layoutY="419.0" prefWidth="200.0" />
+    <TextField fx:id="txtTel2Prop" layoutX="77.0" layoutY="474.0" prefWidth="200.0" />
+    <TextField fx:id="txtMailProp" layoutX="77.0" layoutY="520.0" prefWidth="200.0" />
+    <TextField fx:id="txtDNIProp" layoutX="586.0" layoutY="105.0" prefWidth="200.0" />
   </children>
 </AnchorPane>
