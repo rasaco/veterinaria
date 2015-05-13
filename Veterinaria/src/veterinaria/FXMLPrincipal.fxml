@@ -21,7 +21,10 @@
       <font>
         <Font name="Times New Roman" size="12.0" fx:id="x3" />
       </font>
+      <toggleGroup>
+        <ToggleGroup fx:id="rgButton" />
+      </toggleGroup>
     </RadioButton>
-    <RadioButton fx:id="rdbMascota" font="$x3" layoutX="673.0" layoutY="14.0" mnemonicParsing="false" text="Mascota" />
+    <RadioButton fx:id="rdbMascota" font="$x3" layoutX="720.0" layoutY="23.0" mnemonicParsing="false" selected="true" text="Mascota" toggleGroup="$rgButton" />
   </children>
 </AnchorPane>

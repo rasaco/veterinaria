@@ -34,4 +34,8 @@ public class FXMLPrincipalController implements Initializable {
     public void cerrar() {
         ProgramaPrincipal.cerrarVentana();
     }
+    
+    public void esconder() {
+        ProgramaPrincipal.esconderVentana();
+    }
 }
