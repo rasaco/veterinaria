@@ -92,7 +92,7 @@ public class FXMLPrincipalController implements Initializable {
             //      System.out.println(user.getText());
             //      System.out.println(password.getText());
             ResultSet res;
-            res = sentencia.executeQuery("SELECT nombre from propietarios");
+            res = sentencia.executeQuery("SELECT nombre from propietario");
             //Recorremos el resultada para visualizar cada fila
             while (res.next()) {
                 JOptionPane.showMessageDialog(null, res.getString(1), null, 1);
