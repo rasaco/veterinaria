@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="veterinaria.FXMLPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="veterinaria.FXMLPrincipalController">
   <children>
     <Button fx:id="btnPropietario" layoutX="156.0" layoutY="137.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="PROPIETARIOS">
       <font>
@@ -18,12 +18,15 @@
     <Button fx:id="btnCita" font="$x1" layoutX="350.0" layoutY="213.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="95.0" text="CITAS" textAlignment="CENTER" />
     <Button fx:id="btnMascota" font="$x1" layoutX="458.0" layoutY="137.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="MASCOTAS" />
     <TextField fx:id="txtBusquedaDirecta" layoutX="590.0" layoutY="65.0" prefHeight="26.0" prefWidth="160.0" />
-    <RadioButton fx:id="rdbPropietario" layoutX="590.0" layoutY="42.0" mnemonicParsing="false" text="Propietario">
+    <RadioButton fx:id="rdbPropietario" layoutX="590.0" layoutY="42.0" mnemonicParsing="false" selected="true" text="Propietario">
+         <toggleGroup>
+            <ToggleGroup fx:id="rgButton" />
+         </toggleGroup>
       <font>
         <Font name="Times New Roman" size="12.0" fx:id="x3" />
       </font>
     </RadioButton>
-    <RadioButton fx:id="rdbMascota" font="$x3" layoutX="690.0" layoutY="42.0" mnemonicParsing="false" selected="true" text="Mascota" toggleGroup="$null" />
+    <RadioButton fx:id="rdbMascota" font="$x3" layoutX="690.0" layoutY="42.0" mnemonicParsing="false" text="Mascota" toggleGroup="$rgButton" />
     <ImageView fx:id="imgCerrar" fitHeight="40.0" fitWidth="32.0" layoutX="768.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@images/close.png" />

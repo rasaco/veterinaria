@@ -20,6 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
@@ -45,11 +47,23 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private ImageView imgCerrar;
+    @FXML
+    private ToggleGroup rgButton;
+
+    RadioButton a;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getActions();
         pruebaConexion();
+
+    }
+
+    private void accionMascota() {
+        //Prueba de funcionamiento del RadioGroup
+        //a = (RadioButton) rgButton.getSelectedToggle();
+        //System.out.println("Has pulsado en " + a.getText());
+        //
     }
 
     private void accionCita() {
@@ -66,6 +80,14 @@ public class FXMLPrincipalController implements Initializable {
     }
 
     private void getActions() {
+
+        btnMascota.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                accionMascota();
+            }
+        });
         btnCita.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -95,12 +117,11 @@ public class FXMLPrincipalController implements Initializable {
             res = sentencia.executeQuery("SELECT nombre from propietario");
             //Recorremos el resultada para visualizar cada fila
             while (res.next()) {
-                System.out.print (res.getString(1));
+                System.out.print(res.getString(1));
             }
             res.close();
             sentencia.close();
             conexion.close();
-            
 
         } catch (SQLException e) {
             Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, e);
