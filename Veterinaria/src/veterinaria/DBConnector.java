@@ -12,7 +12,7 @@ public class DBConnector {
 
     private static Connection conn;
     private static String url = "jdbc:mysql://localhost/veterinaria";
-    private static String user = "root";//Username of database  
+    private static String user = "vete";//Username of database  
     private static String pass = "ElCaloret3";//Password of database  
 
     public static Connection connect() throws SQLException {
