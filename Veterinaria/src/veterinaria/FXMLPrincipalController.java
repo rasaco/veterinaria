@@ -95,7 +95,7 @@ public class FXMLPrincipalController implements Initializable {
             res = sentencia.executeQuery("SELECT nombre from propietario");
             //Recorremos el resultada para visualizar cada fila
             while (res.next()) {
-                JOptionPane.showMessageDialog(null, res.getString(1), null, 1);
+                System.out.print (res.getString(1));
             }
             res.close();
             sentencia.close();
