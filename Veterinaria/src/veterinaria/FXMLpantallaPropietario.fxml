@@ -5,6 +5,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="veterinaria.FXMLpantallaPropietarioController">
@@ -14,15 +15,52 @@
         <Font name="Times New Roman" size="35.0" />
       </font>
     </Label>
-    <TextField fx:id="txtNombreProp" layoutX="77.0" layoutY="105.0" prefWidth="200.0" />
-    <TextField fx:id="txtApellidosProp" layoutX="335.0" layoutY="105.0" prefWidth="200.0" />
-    <TextField fx:id="txtDireccionProp" layoutX="77.0" layoutY="212.0" prefWidth="200.0" />
-    <TextField fx:id="txtLocalidadProp" layoutX="77.0" layoutY="262.0" prefWidth="200.0" />
-    <TextField fx:id="txtProvinciaProp" layoutX="77.0" layoutY="312.0" prefWidth="200.0" />
-    <TextField fx:id="txtCpProp" layoutX="77.0" layoutY="363.0" prefWidth="200.0" />
-    <TextField fx:id="txtTel1Prop" layoutX="77.0" layoutY="419.0" prefWidth="200.0" />
-    <TextField fx:id="txtTel2Prop" layoutX="77.0" layoutY="474.0" prefWidth="200.0" />
-    <TextField fx:id="txtMailProp" layoutX="77.0" layoutY="520.0" prefWidth="200.0" />
-    <TextField fx:id="txtDNIProp" layoutX="586.0" layoutY="105.0" prefWidth="200.0" />
+    <Label fx:id="lblNombreProp" layoutX="96.0" layoutY="109.0" text="Nombre:">
+      <font>
+        <Font name="Times New Roman" size="15.0" fx:id="x1" />
+      </font>
+    </Label>
+    <TextField fx:id="txtNombreProp" layoutX="159.0" layoutY="107.0" prefWidth="120.0" />
+    <Label fx:id="lblApellidosProp" font="$x1" layoutX="296.0" layoutY="110.0" text="Apellidos:" />
+    <TextField fx:id="txtApellidosProp" layoutX="366.0" layoutY="105.0" prefWidth="200.0" />
+    <Label fx:id="lblDNIProp" font="$x1" layoutX="592.0" layoutY="111.0" text="DNI:" />
+    <TextField fx:id="txtDNIProp" layoutX="634.0" layoutY="105.0" prefWidth="80.0" />
+    <Label fx:id="lblDireccionProp" font="$x1" layoutX="96.0" layoutY="145.0" text="Dirección:" />
+    <TextField fx:id="txtDireccionProp" layoutX="166.0" layoutY="141.0" prefWidth="400.0" />
+    <Label fx:id="lblLocalidadProp" font="$x1" layoutX="96.0" layoutY="182.0" text="Localidad:" />
+    <TextField fx:id="txtLocalidadProp" layoutX="166.0" layoutY="178.0" prefWidth="179.0" />
+    <Label fx:id="lblProvinciaProp" font="$x1" layoutX="359.0" layoutY="182.0" text="Provincia:" />
+    <TextField fx:id="txtProvinciaProp" layoutX="434.0" layoutY="178.0" prefWidth="132.0" />
+    <Label font="$x1" layoutX="592.0" layoutY="182.0" text="C.P.:" />
+    <TextField fx:id="txtCpProp" layoutX="634.0" layoutY="180.0" prefWidth="54.0" />
+    <Label fx:id="lblTel1Prop" font="$x1" layoutX="96.0" layoutY="225.0" text="Teléfono:" />
+    <TextField fx:id="txtTel1Prop" layoutX="162.0" layoutY="221.0" prefWidth="80.0" />
+    <Label fx:id="lblTel2prop" font="$x1" layoutX="252.0" layoutY="225.0" text="Teléfono (opcional):" />
+    <TextField fx:id="txtTel2Prop" layoutX="386.0" layoutY="223.0" prefWidth="80.0" />
+    <Label fx:id="lblMailProp" font="$x1" layoutX="486.0" layoutY="225.0" text="Email:" />
+    <TextField fx:id="txtMailProp" layoutX="533.0" layoutY="221.0" prefWidth="181.0" />
+    <Button fx:id="btnNuevaMascota" font="$x1" layoutX="90.0" layoutY="294.0" mnemonicParsing="false" text="Mascota" />
+    <Line endX="515.0" endY="0.0" layoutX="196.0" layoutY="310.0" startX="-25.0" />
+    <Pane layoutX="89.0" layoutY="357.0" prefHeight="178.0" prefWidth="621.5" visible="true">
+      <children>
+        <Button fx:id="btnGuardarYVolver" font="$x1" layoutX="102.0" layoutY="132.0" mnemonicParsing="false" text="Guardar y Volver" />
+        <Button fx:id="btnGuardarYSeguir" font="$x1" layoutX="324.0" layoutY="132.0" mnemonicParsing="false" text="Guardar y Agregar otra mascota" />
+        <Label fx:id="lblNombreMascota" font="$x1" layoutX="20.0" layoutY="24.0" text="Nombre:" />
+        <TextField fx:id="txtNombreMascota" layoutX="83.0" layoutY="20.0" prefWidth="120.0" />
+        <Label fx:id="lblFNacMascota" font="$x1" layoutX="220.0" layoutY="26.0" text="F. Nac.:" />
+        <TextField fx:id="txtFNacMascota" layoutX="269.0" layoutY="20.0" prefWidth="65.0" />
+        <Label fx:id="lblRazaMascota" font="$x1" layoutX="350.0" layoutY="26.0" text="Raza:" />
+        <TextField fx:id="txtRazaMascota" layoutX="392.0" layoutY="20.0" prefWidth="132.0" />
+        <Label font="$x1" layoutX="22.0" layoutY="58.0" text="Sexo:" />
+        <RadioButton fx:id="rdbSexoMMascota" font="$x1" layoutX="64.0" layoutY="58.0" mnemonicParsing="false" text="M" />
+        <RadioButton fx:id="rdbSexoFMascota" font="$x1" layoutX="108.0" layoutY="58.0" mnemonicParsing="false" text="H" />
+        <Label fx:id="lblPeloMascota" font="$x1" layoutX="170.0" layoutY="58.0" text="Pelo:" />
+        <TextField fx:id="txtPeloMascota" layoutX="210.0" layoutY="54.0" prefWidth="99.0" />
+        <Label id="lblColorPeloMascota" fx:id="lblColorMascota" font="$x1" layoutX="334.0" layoutY="58.0" text="Color:" />
+        <TextField fx:id="txtColorMascota" layoutX="384.0" layoutY="54.0" prefWidth="120.0" />
+        <Label fx:id="lblMicrochipMascota" font="$x1" layoutX="20.0" layoutY="93.0" text="Nº de Microchip:" />
+        <TextField fx:id="txtMicrochipMascota" layoutX="134.0" layoutY="89.0" prefWidth="200.0" />
+      </children>
+    </Pane>
   </children>
 </AnchorPane>
