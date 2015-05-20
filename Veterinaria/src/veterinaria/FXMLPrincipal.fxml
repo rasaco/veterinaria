@@ -27,7 +27,7 @@
       </font>
     </RadioButton>
     <RadioButton fx:id="rdbMascota" font="$x3" layoutX="690.0" layoutY="42.0" mnemonicParsing="false" text="Mascota" toggleGroup="$rgButton" />
-    <ImageView fx:id="imgCerrar" fitHeight="40.0" fitWidth="32.0" layoutX="768.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="imgCerrar" fitHeight="42.0" fitWidth="30.0" layoutX="768.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@images/close.png" />
       </image>

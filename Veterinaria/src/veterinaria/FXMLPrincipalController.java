@@ -64,11 +64,18 @@ public class FXMLPrincipalController implements Initializable {
         //a = (RadioButton) rgButton.getSelectedToggle();
         //System.out.println("Has pulsado en " + a.getText());
         //
+        ProgramaPrincipal.esconderVentana();
+        ProgramaPrincipal.pantallaMascota();
     }
 
     private void accionCita() {
         ProgramaPrincipal.esconderVentana();
         ProgramaPrincipal.pantallaCita();
+    }
+    
+    private void accionPropietario() {
+        ProgramaPrincipal.esconderVentana();
+        ProgramaPrincipal.pantallaPropietario();
     }
 
     public void setProgramaPrincipal(MainApp aThis) {
@@ -80,7 +87,14 @@ public class FXMLPrincipalController implements Initializable {
     }
 
     private void getActions() {
+        
+        btnPropietario.setOnAction(new EventHandler<ActionEvent>() {
 
+            @Override
+            public void handle(ActionEvent event) {
+                accionPropietario();
+            }
+        });
         btnMascota.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override

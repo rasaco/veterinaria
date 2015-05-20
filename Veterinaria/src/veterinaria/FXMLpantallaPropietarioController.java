@@ -7,7 +7,12 @@ package veterinaria;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -19,14 +24,27 @@ public class FXMLpantallaPropietarioController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     private MainApp ProgramaPrincipal;
-    
+
+    @FXML
+    private ImageView imgCerrar;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-   
+        getAcciones();
+    }
+
+    private void getAcciones() {
+        imgCerrar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent t) {
+                ProgramaPrincipal.cerrarVentanaS();
+                ProgramaPrincipal.desocultarPrincipal();
+            }
+        });
+    }
+
     public void setProgramaPrincipal(MainApp aThis) {
         ProgramaPrincipal = aThis;
     }
