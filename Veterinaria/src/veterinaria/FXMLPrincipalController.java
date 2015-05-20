@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
 
@@ -44,13 +45,10 @@ public class FXMLPrincipalController implements Initializable {
     private RadioButton rdbPropietario, rdbMascota;
     @FXML
     private TextField txtBusquedaDirecta;
-
     @FXML
     private ImageView imgCerrar;
     @FXML
     private ToggleGroup rgButton;
-
-    RadioButton a;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -72,7 +70,7 @@ public class FXMLPrincipalController implements Initializable {
         ProgramaPrincipal.esconderVentana();
         ProgramaPrincipal.pantallaCita();
     }
-    
+
     private void accionPropietario() {
         ProgramaPrincipal.esconderVentana();
         ProgramaPrincipal.pantallaPropietario();
@@ -86,8 +84,30 @@ public class FXMLPrincipalController implements Initializable {
         ProgramaPrincipal.esconderVentana();
     }
 
+    private void cargaDesdeTxt() {
+        if (((RadioButton) rgButton.getSelectedToggle()).getText().equals(rdbMascota.getText())) {
+            //Caso de que esté pulsado mascota
+        } else if (((RadioButton) rgButton.getSelectedToggle()).getText().equals(rdbPropietario.getText())) {
+            //Caso de que esté pulsado propietario
+        }
+    }
+
     private void getActions() {
-        
+
+        txtBusquedaDirecta.setOnKeyTyped(new EventHandler<KeyEvent>() {
+
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCharacter().equals("\r")) {
+                    //System.out.println("Intro pulsado");
+                    //Consigo el radiobutton pulsado
+                    //Carga un Bundle con la opción elegida del radiogroup, abre la pantalla elegida y carga la ficha de propietario o mascota
+                    cargaDesdeTxt();
+                    event.consume();
+                }
+
+            }
+        });
         btnPropietario.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
