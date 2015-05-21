@@ -26,7 +26,8 @@ public class MainApp extends Application {
     private AnchorPane rootPane;
 
     public String usuario;
-
+    public String parametros;
+    
     @Override
     public void start(Stage stage) throws Exception {
         this.stagePrincipal = stage;
@@ -60,7 +61,7 @@ public class MainApp extends Application {
             Stage ventana = new Stage();
             ventana.setTitle("Control Horario");
             ventana.initStyle(StageStyle.UNDECORATED);
-//ventana.initModality(Modality.WINDOW_MODAL);
+            //ventana.initModality(Modality.WINDOW_MODAL);
             ventana.initOwner(stageSecundario);
             Scene scene = new Scene(ventanaEmpleado);
             ventana.setScene(scene);
@@ -131,6 +132,14 @@ public class MainApp extends Application {
 
     void desocultarPrincipal() {
         stagePrincipal.show();
+    }
+
+    public String getParametros() {
+        return parametros;
+    }
+
+    public void setParametros(String parametros) {
+        this.parametros = parametros;
     }
 
     /**

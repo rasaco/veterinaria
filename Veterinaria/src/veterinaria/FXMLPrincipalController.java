@@ -85,10 +85,15 @@ public class FXMLPrincipalController implements Initializable {
     }
 
     private void cargaDesdeTxt() {
+        //Caso de que esté pulsado mascota
         if (((RadioButton) rgButton.getSelectedToggle()).getText().equals(rdbMascota.getText())) {
-            //Caso de que esté pulsado mascota
+            
+           // ProgramaPrincipal.parametros = t.getText();
+            ProgramaPrincipal.pantallaMascota();
+        //Caso de que esté pulsado propietario
         } else if (((RadioButton) rgButton.getSelectedToggle()).getText().equals(rdbPropietario.getText())) {
-            //Caso de que esté pulsado propietario
+            ProgramaPrincipal.parametros = rdbPropietario.getText();
+            ProgramaPrincipal.pantallaPropietario();
         }
     }
 
