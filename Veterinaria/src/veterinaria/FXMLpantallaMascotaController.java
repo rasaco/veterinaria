@@ -30,6 +30,7 @@ public class FXMLpantallaMascotaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getAcciones();
+      //  System.out.println(ProgramaPrincipal.getParametros());
     }    
   
     private void getAcciones(){

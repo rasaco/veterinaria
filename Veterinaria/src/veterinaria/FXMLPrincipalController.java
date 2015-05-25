@@ -20,12 +20,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -53,7 +51,7 @@ public class FXMLPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getActions();
-        pruebaConexion();
+        //pruebaConexion();
 
     }
 
@@ -88,7 +86,7 @@ public class FXMLPrincipalController implements Initializable {
         //Caso de que esté pulsado mascota
         if (((RadioButton) rgButton.getSelectedToggle()).getText().equals(rdbMascota.getText())) {
             
-           // ProgramaPrincipal.parametros = t.getText();
+            ProgramaPrincipal.parametros = rdbMascota.getText();
             ProgramaPrincipal.pantallaMascota();
         //Caso de que esté pulsado propietario
         } else if (((RadioButton) rgButton.getSelectedToggle()).getText().equals(rdbPropietario.getText())) {
@@ -154,6 +152,7 @@ public class FXMLPrincipalController implements Initializable {
             //      System.out.println(password.getText());
             ResultSet res;
             res = sentencia.executeQuery("SELECT nombre from propietario");
+           // sentencia.executeUpdate("INSERT INTO propietario VALUES ('"+txtBusquedaDirecta.getText()+"')");
             //Recorremos el resultada para visualizar cada fila
             while (res.next()) {
                 System.out.print(res.getString(1));
