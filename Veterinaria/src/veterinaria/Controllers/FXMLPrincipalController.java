@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package veterinaria;
+package veterinaria.Controllers;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -24,6 +24,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import veterinaria.DBConnector;
+import veterinaria.MainApp;
 
 /**
  * FXML Controller class
