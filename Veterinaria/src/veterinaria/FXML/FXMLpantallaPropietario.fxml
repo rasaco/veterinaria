@@ -13,7 +13,7 @@
   <children>
       <ImageView fx:id="imgCerrar" fitHeight="42.0" fitWidth="30.0" layoutX="768.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/close.png" />
+            <Image url="@../images/close.png" />
          </image>
       </ImageView>
     <Label fx:id="lblTituloPantalla" layoutX="277.0" layoutY="26.0" text="PROPIETARIOS">

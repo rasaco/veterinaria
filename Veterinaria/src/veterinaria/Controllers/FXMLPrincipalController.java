@@ -13,17 +13,22 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import veterinaria.DBConnector;
 import veterinaria.MainApp;
 
@@ -50,9 +55,16 @@ public class FXMLPrincipalController implements Initializable {
     @FXML
     private ToggleGroup rgButton;
 
+    @FXML
+    private TableColumn<Propietario, String> tcNombre, tcApellidos, tcTelefono1, tcTelefono2, tcEmail;
+
+    @FXML
+    private TableView<Propietario> tbPropietario;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         getActions();
+        inicializaTabla();
         //pruebaConexion();
 
     }
@@ -166,5 +178,57 @@ public class FXMLPrincipalController implements Initializable {
         } catch (SQLException e) {
             Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+        private void inicializaTabla() {
+        tcNombre.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Propietario, String>, ObservableValue<String>>() {
+
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Propietario, String> cellData) {
+                return cellData.getValue().nombre;
+            }
+        });
+        tcApellidos.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Propietario, String>, ObservableValue<String>>() {
+
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Propietario, String> cellData) {
+                return cellData.getValue().apellidos;
+            }
+        });
+
+        tcTelefono1.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Propietario, String>, ObservableValue<String>>() {
+
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Propietario, String> cellData) {
+                return cellData.getValue().tel1;
+            }
+        });
+        tcTelefono2.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Propietario, String>, ObservableValue<String>>() {
+
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Propietario, String> cellData) {
+                return cellData.getValue().tel2;
+            }
+        });
+        tcEmail.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Propietario, String>, ObservableValue<String>>() {
+
+            public ObservableValue<String> call(TableColumn.CellDataFeatures<Propietario, String> cellData) {
+                return cellData.getValue().email;
+            }
+        });
+    }
+public class Propietario {
+
+        private final SimpleStringProperty codProp;
+        private final SimpleStringProperty nombre;
+        private final SimpleStringProperty apellidos;
+        private final SimpleStringProperty tel1;
+        private final SimpleStringProperty tel2;
+        private final SimpleStringProperty email;
+
+        private Propietario(String codProp,String nombre,String apellidos,String tel1,String tel2,String email) throws SQLException {
+            this.codProp = new SimpleStringProperty (codProp);
+            this.nombre = new SimpleStringProperty (nombre);
+            this.apellidos = new SimpleStringProperty (apellidos);
+            this.tel1 = new SimpleStringProperty (tel1);
+            this.tel2 = new SimpleStringProperty (tel2);
+            this.email = new SimpleStringProperty (email);
+        }
+
     }
 }
