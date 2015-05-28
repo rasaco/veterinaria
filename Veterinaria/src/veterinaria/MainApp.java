@@ -5,10 +5,6 @@ package veterinaria;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import veterinaria.Controllers.FXMLpantallaMascotaController;
-import veterinaria.Controllers.FXMLpantallaCitaController;
-import veterinaria.Controllers.FXMLpantallaPropietarioController;
-import veterinaria.Controllers.FXMLPrincipalController;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
